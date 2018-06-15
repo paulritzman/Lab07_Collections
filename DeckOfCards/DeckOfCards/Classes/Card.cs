@@ -4,19 +4,41 @@ using System.Text;
 
 namespace DeckOfCards.Classes
 {
-    class Card
+    public class Card
     {
-        public int Rank { get; set; }
+        public Rank Rank { get; set; }
 
         public Suit Suit {get; set;}
+
+        public Card(Rank rank, Suit suit)
+        {
+            Rank = rank;
+            Suit = suit;
+        }
     }
 
-    enum Suit
+    public enum Suit
     {
-        Hearts,
-        Diamonds,
-        Clubs,
-        Spades
+        Hearts = 1,
+        Diamonds = 2,
+        Clubs = 3,
+        Spades = 4,
     }
 
+    public enum Rank
+    {
+        Ace = 1,
+        Two = 2,
+        Three = 3,
+        Four = 4,
+        Five = 5,
+        Six = 6,
+        Seven = 7,
+        Eight = 8,
+        Nine = 9,
+        Ten = 10,
+        Jack = 11,
+        Queen = 12,
+        King = 13,
+    }
 }
