@@ -65,6 +65,38 @@ namespace DeckOfCards.Classes
             }
         }
 
+        public void ShuffleDeck()
+        {
+            int randomIndex;
+            Random rand = new Random();
+
+            int[] randArray = new int[cards.Length];
+            T[] tempArray = new T[cards.Length];
+
+            for (int k = 0; k < randArray.Length; k++)
+            {
+                randArray[k] = -1;
+            }
+
+            for (int i = 0; i < cards.Length; i++)
+            {
+                do
+                {
+                    randomIndex = rand.Next(0, cards.Length);
+                }
+                while (Array.IndexOf(randArray, randomIndex) != -1);
+                
+                randArray[i] = randomIndex;
+            }
+
+            for (int j = 0; j < cards.Length; j++)
+            {
+                tempArray[j] = cards[randArray[j]];
+            }
+
+            cards = tempArray;
+        }
+        
         public void PrintDeck(Deck<Card> inputDeck)
         {
             foreach (Card c in inputDeck)
@@ -79,20 +111,7 @@ namespace DeckOfCards.Classes
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
         // IEnumerator Declarations
         public IEnumerator<T> GetEnumerator()
@@ -107,20 +126,5 @@ namespace DeckOfCards.Classes
         {
             return GetEnumerator();
         }
-
-        //static void DeckExample()
-        //{
-        //Card card = new Card();
-        //card.Suit = Suit.Spades;
-        //card.Rank = 14;
-
-        //Card c = new Card
-        //{
-        //    Suit = Suit.Spades,
-        //    Rank = 14,
-        //};
-
-        //Deck<Card> secondDeck = new Deck<Card> { c };
-        //}
     }
 }
