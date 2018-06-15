@@ -7,8 +7,6 @@ namespace DeckOfCards.Classes
 {
     public class Deck<T> : IEnumerable
     {
-        // One more than half a standard card deck, so that half of a deck can
-        // be stored without needing to allocate additional memory
         T[] cards = new T[16];
 
         int count;
@@ -107,11 +105,6 @@ namespace DeckOfCards.Classes
                 }
             }
         }
-
-
-
-
-        
 
         // IEnumerator Declarations
         public IEnumerator<T> GetEnumerator()

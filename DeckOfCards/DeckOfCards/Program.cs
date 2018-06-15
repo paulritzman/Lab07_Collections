@@ -8,13 +8,12 @@ namespace DeckOfCards
         public static void Main(string[] args)
         {
             PrintGreeting();
-
             LaunchMainMenu();
         }
 
         private static void PrintGreeting()
         {
-            Console.WriteLine("\tWelcome to Tic-Tac-Toe!\n");
+            Console.WriteLine("\tWelcome to Deck Of Cards!\n");
         }
 
         private static void PrintMainMenuOptions()
@@ -68,6 +67,17 @@ namespace DeckOfCards
             }
         }
 
+        public static void RemoveTheCard(Deck<Card> myDeck)
+        {
+            Console.WriteLine(
+                            "What is the index of the card you want to remove? " +
+                            "(Indexing starts at zero.)");
+            string inputIndex = Console.ReadLine();
+            int cardIndex = VerifyIndexEntered(inputIndex);
+
+            myDeck.RemoveCard(cardIndex);
+        }
+
         private static int VerifyIndexEntered(string inputIndex)
         {
             try
@@ -119,12 +129,7 @@ namespace DeckOfCards
                         Console.Clear();
                         break;
                     case "4":
-                        Console.WriteLine(
-                            "What is the index of the card you want to remove? " +
-                            "(Indexing starts at zero.)");
-                        string inputIndex = Console.ReadLine();
-                        int cardIndex = VerifyIndexEntered(inputIndex);
-                        myDeck.RemoveCard(cardIndex);
+                        RemoveTheCard(myDeck);
 
                         myDeck.PrintDeck(myDeck);
                         PromptReturnToMenu();
@@ -139,6 +144,5 @@ namespace DeckOfCards
                 }
             } while (menuOptionSelected != "5");
         }
-
     }
 }
