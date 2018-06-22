@@ -63,7 +63,7 @@ namespace DeckOfCards.Classes
             }
         }
 
-        public void ShuffleDeck()
+        public T[] ShuffleDeck()
         {
             int randomIndex;
             Random rand = new Random();
@@ -93,6 +93,8 @@ namespace DeckOfCards.Classes
             }
 
             cards = tempArray;
+
+            return cards;
         }
         
         public void PrintDeck(Deck<Card> inputDeck)
