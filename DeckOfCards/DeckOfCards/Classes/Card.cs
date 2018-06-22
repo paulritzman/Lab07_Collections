@@ -6,10 +6,11 @@ namespace DeckOfCards.Classes
 {
     public class Card
     {
+        // Class fields
         public Rank Rank { get; set; }
-
         public Suit Suit {get; set;}
 
+        // Card Constructor method
         public Card(Rank rank, Suit suit)
         {
             Rank = rank;
@@ -17,6 +18,7 @@ namespace DeckOfCards.Classes
         }
     }
 
+    // Enum of available Card Suits
     public enum Suit
     {
         Hearts = 1,
@@ -25,6 +27,7 @@ namespace DeckOfCards.Classes
         Spades = 4,
     }
 
+    // Enum of available Card Ranks
     public enum Rank
     {
         Ace = 1,

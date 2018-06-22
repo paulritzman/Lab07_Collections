@@ -7,15 +7,20 @@ namespace DeckOfCards
     {
         public static void Main(string[] args)
         {
+            // Call PrintGreeting to welcome the user
             PrintGreeting();
+            
+            // Call LaunchMainMenu to start the main application logic and accept user input
             LaunchMainMenu();
         }
 
+        // Prints a greeting to the user
         private static void PrintGreeting()
         {
             Console.WriteLine("\tWelcome to Deck Of Cards!\n");
         }
 
+        // Prints the main menu options that the user can select
         private static void PrintMainMenuOptions()
         {
             Console.WriteLine(
@@ -27,12 +32,14 @@ namespace DeckOfCards
                         "5) Exit Application\n");
         }
 
+        // Creates a prompt for the user to hit any key to return to the main menu
         private static void PromptReturnToMenu()
         {
             Console.Write("\nPress any key to return to the main menu...");
             Console.ReadKey();
         }
 
+        // Method to add a card to the Deck - validates user input to ensure a Card Rank and Suit match input
         public static void AddACard(Deck<Card> myDeck)
         {
             Console.WriteLine(
@@ -67,6 +74,8 @@ namespace DeckOfCards
             }
         }
 
+        // Remove a card from the Deck
+        // Calls VerifyIndexEntered() prior to removing the card
         public static void RemoveTheCard(Deck<Card> myDeck)
         {
             Console.WriteLine(
@@ -78,6 +87,7 @@ namespace DeckOfCards
             myDeck.RemoveCard(cardIndex);
         }
 
+        // Verifies that the user entered a valid index within the Deck of Cards
         private static int VerifyIndexEntered(string inputIndex)
         {
             try
@@ -92,6 +102,7 @@ namespace DeckOfCards
             }
         }
 
+        // Logic which runs the main menu and allows user to navigate throughout the application
         public static void LaunchMainMenu()
         {
             string menuOptionSelected = "";
