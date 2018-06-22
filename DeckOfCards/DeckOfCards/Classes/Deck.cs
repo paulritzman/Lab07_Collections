@@ -7,10 +7,11 @@ namespace DeckOfCards.Classes
 {
     public class Deck<T> : IEnumerable
     {
+        // Class fields
         T[] cards = new T[16];
-
         int count;
 
+        // Method which fills a Deck with randomly selected Ranks and Suits
         public Deck<Card> CreateDeck()
         {
             Random rand = new Random();
@@ -28,6 +29,7 @@ namespace DeckOfCards.Classes
             return newDeck;
         }
 
+        // Method which adds a Card to the T[] cards field
         public void Add(T card)
         {
             if (count == cards.Length)
@@ -38,6 +40,7 @@ namespace DeckOfCards.Classes
             cards[count++] = card;
         }
 
+        // Method which removes a Card from the T[] cards field
         public void RemoveCard(int index)
         {
             if (index >= 0 && index < cards.Length)
@@ -63,6 +66,7 @@ namespace DeckOfCards.Classes
             }
         }
 
+        // Method which randomly shifts the indexes of Cards within the T[] cards field
         public T[] ShuffleDeck()
         {
             int randomIndex;
@@ -97,6 +101,7 @@ namespace DeckOfCards.Classes
             return cards;
         }
         
+        // Method which prints all Cards within the Deck
         public void PrintDeck(Deck<Card> inputDeck)
         {
             foreach (Card c in inputDeck)
